@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            border:1px solid red;
+            padding:10px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 案例
+        点击button时，可以显示或隐藏div
+
+        :新的需求
+        点击空白区域也可以隐藏这个div
+     -->
+    <button id="btn">点击显示或隐藏下面的div</button>
+    <div id="box">
+        隐藏或显示
+    </div>
+    <script>
+     var btn=document.getElementById("btn")   
+     var box=document.getElementById("box")   
+
+     btn.addEventListener("click",function(){
+        if(box.style.display=="none"||box.style.display==""){
+            box.style.display="block";
+        }else{
+            box.style.display="none";
+        }
+     });
+
+     // 冒泡的破坏性
+     document.onclick=function(){
+        setTimeout(function(){
+            box.style.display="none";
+        },1000)
+    };
+    </script>
+</body>
+</html>
